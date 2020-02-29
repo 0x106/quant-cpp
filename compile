@@ -1,0 +1,8 @@
+#! /bin/bash
+
+SRC="./src/"
+DST="./.build"
+
+echo 'Compiling...'
+
+g++ $SRC/main.cpp -o $DST/quant
