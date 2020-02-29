@@ -1,0 +1,6 @@
+#! /bin/bash
+
+SRC="./src/"
+DST="./.build"
+
+echo 'Testing...'
