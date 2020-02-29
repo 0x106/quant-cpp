@@ -5,4 +5,4 @@ DST="./.build"
 
 echo 'Compiling...'
 
-g++ $SRC/main.cpp -o $DST/quant
+g++ $SRC/main.cpp -std=c++14 -o $DST/quant

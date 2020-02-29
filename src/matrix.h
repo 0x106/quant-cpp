@@ -1,4 +1,6 @@
-#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <initializer_list>
 
 namespace Quant {
 
@@ -6,15 +8,41 @@ namespace Quant {
 
     class Vector {
         private:
-            std::vector<Format> m_data;
+            Format* m_data;
+            int m_N;
 
         public:
-            Vector();
-            virtual ~Vector();
+            Vector() : m_data(nullptr), m_N(0) {}
+            virtual ~Vector() {
+                delete m_data;
+                m_data = nullptr;
+                m_N = 0;
+            }
+
+            Vector(int N) {
+                m_N = N;
+                m_data = new Format[m_N];
+            }
             
-            Vector(Format value, int N);
-            Vector(std::vector<Format> data);
-            Vector(const Vector& v);
+            Vector(int N, Format value) {
+                m_N = N;
+                m_data = new Format[m_N];
+                for (int i = 0; i < m_N; ++i)
+                    m_data[i] = value;
+            }
+
+            Vector(std::initializer_list<Format> data) {
+                m_N = data.size();
+                m_data = new Format[m_N];
+                m_data = data;
+                // for( int i = 0; i < m_N; ++i ) { m_data[i] = data[i]; }
+            }
+
+            Vector(const Vector& v) : m_data(v.m_data), m_N(v.m_N) {}
+
+            // Vector(Vector&& v) : m_data(nullptr), m_N(0) {
+            //     *this = std::move(v);
+            // }
 
             void print() const;
 
@@ -31,23 +59,22 @@ namespace Quant {
             Format lInfinityNorm() const;
     };
 
-    class Matrix {
-        private:
-            std::vector<Quant::Vector> m_data;
+    // class Matrix {
+    //     private:
+    //         std::vector<Quant::Vector> m_data;
 
-        public:
-            Matrix();
-            virtual ~Matrix();
+    //     public:
+    //         Matrix();
+    //         virtual ~Matrix();
             
-            Matrix(Format value, int N);
-            Matrix(const Quant::Vector& data, int N);
-            Matrix(const std::vector<Quant::Vector> data);
-            Matrix(const Matrix& m);
+    //         Matrix(Format value, int N);
+    //         Matrix(const Quant::Vector& data, int N);
+    //         Matrix(const std::vector<Quant::Vector> data);
+    //         Matrix(const Matrix& m);
 
-            void print() const;
-            Matrix& 
-
-    };
+    //         void print() const;
+    //         Matrix& operator* (const Matrix& rhs);
+    // };
 
 
 }
