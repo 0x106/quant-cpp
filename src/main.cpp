@@ -27,5 +27,8 @@ int main (int argc, char** argv) {
     f.print();
     g.print();
 
+    Vector h = f + g;
+    h.print();
+
     return 0;
 }
