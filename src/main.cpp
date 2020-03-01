@@ -4,7 +4,7 @@
 #include "./linalg.h"
 #include "./stats.h"
 
-using Vector = Quant::Vector<Quant::Format>;
+using Vector = Quant::Vector<float>;
 
 int main (int argc, char** argv) {
     std::cout << "Quant" << std::endl;

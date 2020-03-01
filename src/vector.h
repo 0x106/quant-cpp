@@ -1,8 +1,6 @@
 #ifndef VECTOR_H__
 #define VECTOR_H__
 
-// https://codereview.stackexchange.com/questions/63970/custom-mathematical-vector-class
-
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -10,7 +8,7 @@
 
 namespace Quant
 {
-
+    
 template <class T>
 class Vector
 {

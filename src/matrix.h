@@ -13,8 +13,6 @@
 namespace Quant
 {
 
-using Format = float;
-
 template <class T>
 class Matrix
 {
