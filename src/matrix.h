@@ -19,22 +19,22 @@ template <class T>
 class Matrix
 {
 private:
-    std::vector<T> m_data;
+    std::vector<Vector<T>> m_data;
 
 public:
     Matrix();
     virtual ~Matrix();
 
-    Matrix(size_t n);
-    Matrix(const std::vector<T> &v);
-    Matrix(std::initializer_list<T> data);
-    Matrix(const Matrix<T> &v);
+    Matrix(size_t n, size_t m);
+    Matrix(const std::vector<Vector<T> > &m);
+    // Matrix(std::initializer_list<T> data);
+    Matrix(const Matrix<T> &m);
 
     // todo: figure out how to get the move constructors to work
     // Matrix(Matrix<T>&& v);
     // Matrix<T>& operator=(Matrix<T>&& v);
 
-    std::vector<T> data() const;
+    std::vector<Vector<T> > data() const;
     void print() const;
 };
 
@@ -50,16 +50,19 @@ Matrix<T>::~Matrix()
 }
 
 template <class T>
-Matrix<T>::Matrix(size_t n) : m_data(n) {}
+Matrix<T>::Matrix(size_t n, size_t m) : m_data(n) {
+    for (int i = 0; i < n; ++i)
+        m_data.push_back( Vector<T>(m) );
+}
 
 template <class T>
-Matrix<T>::Matrix(const std::vector<T> &v) : m_data(v) {}
+Matrix<T>::Matrix(const std::vector<Vector<T> > &m) : m_data(m) {}
+
+// template <class T>
+// Matrix<T>::Matrix(std::initializer_list<T> data) : m_data(data) {}
 
 template <class T>
-Matrix<T>::Matrix(std::initializer_list<T> data) : m_data(data) {}
-
-template <class T>
-Matrix<T>::Matrix(const Matrix<T> &v) : m_data(v.data()) {}
+Matrix<T>::Matrix(const Matrix<T> &m) : m_data(m.data()) {}
 
 // template <class T>
 // Matrix<T>::Matrix(Matrix<T>&& v) {
@@ -73,7 +76,7 @@ Matrix<T>::Matrix(const Matrix<T> &v) : m_data(v.data()) {}
 // }
 
 template <class T>
-std::vector<T> Matrix<T>::data() const
+std::vector<Vector<T> > Matrix<T>::data() const
 {
     return m_data;
 }
@@ -81,11 +84,11 @@ std::vector<T> Matrix<T>::data() const
 template <class T>
 void Matrix<T>::print() const
 {
-    for (const auto &e : m_data)
-    {
-        std::cout << e << " ";
-    }
-    std::cout << std::endl;
+    // for (const auto &e : m_data)
+    // {
+    //     std::cout << e << " ";
+    // }
+    // std::cout << std::endl;
 }
 } // namespace Quant
 
