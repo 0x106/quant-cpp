@@ -38,7 +38,7 @@ public:
     Vector<T> &operator/=(T value);
 
     const std::vector<T> data() const;
-    void print() const;
+    // friend std::ostream& operator<<(std::ostream& out, const Vector& v);
 };
 
 template <class T>
@@ -71,13 +71,13 @@ const std::vector<T> Vector<T>::data() const
 }
 
 template <class T>
-void Vector<T>::print() const
+std::ostream &operator<<(std::ostream &out, const Vector<T> &v)
 {
-    for (const auto &e : m_data)
+    for (const auto &e : v.data())
     {
-        std::cout << e << " ";
+        out << e << " ";
     }
-    std::cout << std::endl;
+    return out;
 }
 
 template <class T>

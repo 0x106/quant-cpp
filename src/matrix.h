@@ -27,12 +27,7 @@ public:
 
     Matrix(size_t n, size_t m);
     Matrix(const std::vector<Vector<T> > &m);
-    // Matrix(std::initializer_list<T> data);
     Matrix(const Matrix<T> &m);
-
-    // todo: figure out how to get the move constructors to work
-    // Matrix(Matrix<T>&& v);
-    // Matrix<T>& operator=(Matrix<T>&& v);
 
     std::vector<Vector<T> > data() const;
     void print() const;
@@ -58,22 +53,8 @@ Matrix<T>::Matrix(size_t n, size_t m) : m_data(n) {
 template <class T>
 Matrix<T>::Matrix(const std::vector<Vector<T> > &m) : m_data(m) {}
 
-// template <class T>
-// Matrix<T>::Matrix(std::initializer_list<T> data) : m_data(data) {}
-
 template <class T>
 Matrix<T>::Matrix(const Matrix<T> &m) : m_data(m.data()) {}
-
-// template <class T>
-// Matrix<T>::Matrix(Matrix<T>&& v) {
-//     *this = std::move(v);
-// }
-
-// template <class T>
-// Matrix<T>& operator=(Matrix<T>&& v) {
-//     v.swap(*this);
-//     return *this;
-// }
 
 template <class T>
 std::vector<Vector<T> > Matrix<T>::data() const

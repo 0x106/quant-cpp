@@ -15,20 +15,20 @@ int main (int argc, char** argv) {
 
     Vector e = {1.0f, 2.0f};
 
-    b.print();
-    c.print();
-    d.print();
-    e.print();
+    std::cout << b << std::endl;
+    std::cout << c << std::endl;
+    std::cout << d << std::endl;
+    std::cout << e << std::endl;
 
     Vector f(e);
     Vector g;
     g = f;
 
-    f.print();
-    g.print();
+    std::cout << f << std::endl;
+    std::cout << g << std::endl;
 
     Vector h = f + g;
-    h.print();
+    std::cout << h << std::endl;
 
     return 0;
 }
