@@ -8,7 +8,7 @@
 
 namespace Quant
 {
-    
+
 template <class T>
 class Vector
 {
@@ -36,7 +36,6 @@ public:
     Vector<T> &operator/=(T value);
 
     const std::vector<T> data() const;
-    // friend std::ostream& operator<<(std::ostream& out, const Vector& v);
 };
 
 template <class T>

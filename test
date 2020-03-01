@@ -1,6 +1,10 @@
 #! /bin/bash
 
-SRC="./src/"
-DST="./.build"
+SRC="src"
+DST=".build"
+TEST="tests"
 
 echo 'Testing...'
+
+g++ $TEST/test__vector.cpp -std=c++14 -o $TEST/$DST/test__vector
+$TEST/$DST/test__vector

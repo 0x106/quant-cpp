@@ -28,7 +28,6 @@ public:
     Matrix(const Matrix<T> &m);
 
     std::vector<Vector<T> > data() const;
-    void print() const;
 };
 
 template <class T>
