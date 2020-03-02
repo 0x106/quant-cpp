@@ -47,6 +47,11 @@ int test_copy()
 
         if (!(q.data()[0] == 3) || !(q.data()[1] == 5) || !(q.data()[2] == 7))
             success = 0;
+
+        Quant::Vector<float> p = q;
+
+        if (!(p.data()[0] == 3) || !(p.data()[1] == 5) || !(p.data()[2] == 7))
+            success = 0;
     }
     return success;
 }
